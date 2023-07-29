@@ -1,13 +1,15 @@
 ## Next JS App
-## Routes
+## API Routes
 app/api/login
+
 app/api/authenticate
 
-## pages
+## Pages routes
 app/page.tsx
+
 app/login/page.tsx
 
-## Authentication setup for authentication on server side. 
+## App authentication on server side. 
 
 app/middlewares.ts 
 
