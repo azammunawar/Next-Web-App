@@ -1,7 +1,6 @@
+"use client";
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
-import Head from "next/head";
 import {
   selectedTheme,
   ThemeName,
@@ -21,22 +20,27 @@ export const useTheme = () => {
   }
   return context;
 };
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [theme, setTheme] = useState<ThemeName>(defaultTheme);
 
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
+    <html>
+      <head />
+      <body>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <ThemeProvider theme={selectedTheme(theme)}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          <Component {...pageProps} />
+          {children}
         </ThemeProvider>
       </ThemeContext.Provider>
-    </>
+       
+        </body>
+    </html>
   );
 }
