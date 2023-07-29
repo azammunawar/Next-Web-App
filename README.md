@@ -16,6 +16,7 @@ app/middlewares.ts
 ## Switch theme
 
 app/layout.tsx
+
 src/theme.ts
 
 ## Getting Started
